@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+  <body>
+    <div id="calculator">
+      <div class="banner">
+        <h3 id="heading">PAY PER ESTIMATE ROI CALCULATOR</h3>
+      </div>
+			<h4>Input</h4>
+      <label class="FBLabel" for="industry">Your industry</label>
+      <select id="industry" name="industry" class="FBInput" onchange="calculate();">
+        <option value="125">New Countertops</option>
+        <option value="125">Trees Removal</option>
+        <option value="150">Moving/Storage</option>
+        <option value="175">HVAC Unit/System Install</option>
+        <option value="175">New Siding/Painting</option>
+        <option value="175">Electrician (home generator)</option>
+        <option value="180">Cabinet Refacing</option>
+        <option value="200">New Fencing</option>
+        <option value="200">Luxury Flooring & Hardwood</option>
+        <option value="200">Electric Furnace/Boiler/Heat Pump</option>
+        <option value="200">Solar Panels Installation</option>
+        <option value="225">Decks & Porches Build/Replace</option>
+        <option value="225">Install water heater</option>
+        <option value="225">Windows Installation</option>
+        <option value="250">Foundation Repair</option>
+        <option value="250">Basement Waterproofing</option>
+        <option value="250">Major Roof Repairs</option>
+        <option value="250">New bathtub/shower</option>
+        <option value="250">New septic system/tank</option>
+        <option value="250">Custom Landscaping/Hardscaping</option>
+        <option value="250">Other</option>
+        <option value="275">Roofing Installation</option>
+        <option value="275">Swimming Pools</option>
+        <option value="300">Custom kitchen remodeling</option>
+        <option value="300">Custom bathroom remodeling</option>
+        <option value="350">Fire/Water Damage Restoration</option>
+        <option value="350">Additions/New Construction</option>
+      </select>
+      <br />
+      <label class="FBLabel" for="profit">Average profit per high ticket job</label>
+      <input id="profit" name="profit" type="text" class="FBInput" onchange="calculate();" />
+      <br />
+      <label class="FBLabel" for="ratio">Closing ratio</label>
+      <select id="ratio" name="ratio" class="FBInput"  onchange="calculate();" />
+        <option value="0.05">5%</option>"
+        <option value="0.1">10%</option>"
+        <option value="0.15">15%</option>"
+        <option value="0.2">20%</option>"
+        <option value="0.25">25%</option>"
+        <option value="0.3">30%</option>"
+        <option value="0.35">35%</option>"
+        <option value="0.4">40%</option>"
+        <option value="0.45">45%</option>"
+        <option value="0.5">50%</option>"
+        <option value="0.55">55%</option>"
+        <option value="0.6">60%</option>"
+        <option value="0.65">65%</option>"
+        <option value="0.7">70%</option>"
+        <option value="0.75">75%</option>"
+        <option value="0.8">80%</option>"
+        <option value="0.85">85%</option>"
+        <option value="0.9">90%</option>"
+        <option value="0.95">95%</option>"
+        <option value="1">100%</option>"
+      </select>
+      <br />
+      <br />
+			<h4>Calculation</h4>
+			<div id="calculation">
+				<div><span>Cost per estimate: </span><span class="calcVal" id="cpe1">$125</span></div>
+				<div><span>Number of estimates to generate a paid invoice: </span><span class="calcVal" id="noe1">20.00</span></div>
+				<div><span>Avg Revenue per closed sale: </span><span class="calcVal" id="avp1">$0</span></div>
+				<div id="formulaContainer">
+					<div id="roiLbl">ROI</div>
+					<div class="equal">=</div>
+					<div id="formula">
+						<div id="nume">
+							<span id="avp2">$0</span>
+						</div>
+						<div id="deno">
+							<span id="cpe2">$125</span> X <span id="noe2">20.00</span>
+						</div>
+					</div>
+					<div class="equal">=</div>
+					<div id="calcResCon">
+						<span id="calcRes">0.00</span>
+					</div>
+				</div>
+			</div>
+			<h4>Result</h4>
+      <div id="output">
+				<span id="result">0.00</span><span>X ROI</span>
+      </div>
+    </div>
+    <style>
+			* {
+				box-sizing: border-box;
+			}
+			#heading {
+				margin: 0px;
+				background-color: #4285F4;
+				color: white;
+				padding: 15px;
+				border-radius: 10px 10px 0px 0px;
+			}
+			h4 {
+				margin-bottom: 5px;
+			}
+			#calculator {
+				border: 1px solid #4285F4;
+				border-radius: 10px;
+				max-width: 420px;
+				margin: auto;
+				text-align: center;
+			}
+			.FBLabel, .FBInput {
+				display: inline-block;
+				margin-bottom: 10px;
+				vertical-align: middle;
+				margin: 5px;
+			}
+			#calculation {
+				display: inline-block;
+				margin: auto;
+				padding: 5px;
+			}
+			#calculation>div {
+				text-align: left;
+				margin: 5px;
+			}
+			#formulaContainer>div {
+				display:inline-block;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+			#formula {
+				display: inline-block;
+				max-width: 100px;
+			}
+			#nume, #deno {
+				width: 100%;
+				text-align: center;
+				padding: 5px;
+			}
+			#deno {
+				border-top: 1px solid black;
+			}
+			.FBLabel {
+				text-align: left;
+				width: 55%;
+			}
+			.FBInput {
+				text-align: center;
+				width: 35%;
+				background-color: #FFE599;
+			}
+			#output {
+				display: inline-block;
+				font-weight: bold;
+				padding: 10px;
+				margin: 10px;
+				background-color: #D2F3Ba;
+				border-radius: 5px;
+				color: #005000;
+			}
+    </style>
+    <script>
+			function calculate(){
+				var cpe = document.getElementById("industry").value;
+				var ratio = document.getElementById("ratio").value;
+				var profit = document.getElementById("profit").value;
+				var res = profit * ratio/cpe;
+				document.getElementById("cpe1").innerHTML = '$' + cpe;
+				document.getElementById("cpe2").innerHTML = '$' + cpe;
+				document.getElementById("noe1").innerHTML = (1/ratio).toFixed(2);
+				document.getElementById("noe2").innerHTML = (1/ratio).toFixed(2);
+				document.getElementById("avp1").innerHTML = '$' + profit;
+				document.getElementById("avp2").innerHTML = '$' + profit;
+				document.getElementById("result").innerHTML = res.toFixed(2);
+				document.getElementById("calcRes").innerHTML = res.toFixed(2);
+			}
+    </script>
+  </body>
+</html>
